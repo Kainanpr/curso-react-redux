@@ -1,18 +1,16 @@
 import React from 'react';
+import If from './If';
 
 export default class IconButton extends React.Component {
 
-    render() {   
-        if(this.props.hide) {
-            return null;
-        }      
-        else  {
-            return (
+    render() {  
+        return (
+            <If test={!this.props.hide}>
                 <button className={"btn btn-" + this.props.style}
                     onClick={this.props.onClick}>
                     <i className={"fa fa-" + this.props.icon}></i>
-                </button>
-            );    
-        }          
+                </button> 
+            </If>
+        );         
     }
 }
