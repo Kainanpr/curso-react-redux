@@ -19,6 +19,8 @@ export default class Todo extends React.Component {
         this.handleAdd = this.handleAdd.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleRemove = this.handleRemove.bind(this);
+        this.handleMarkAsPeding = this.handleMarkAsPeding.bind(this);
+        this.handleMarkAsDone = this.handleMarkAsDone.bind(this);
     }
 
     /* Metodo é chamado apenas uma vez após a renderização do componente */
@@ -48,14 +50,28 @@ export default class Todo extends React.Component {
             .then(resp => this.refresh());
     }
 
+    handleMarkAsDone(todo) {
+        axios.put(URL + "/" + todo._id, { ...todo, done: true })
+            .then(resp => this.refresh());
+    }
+
+    handleMarkAsPeding(todo) {
+        axios.put(URL + "/" + todo._id, { ...todo, done: false })
+            .then(resp => this.refresh());
+    }
+
     render() {
         return (
             <div>
                 <PageHeader name="Tarefas" small="cadastro"></PageHeader>
-                <TodoForm description={this.state.description}
+                <TodoForm 
+                    description={this.state.description}
                     handleChange={this.handleChange}
                     handleAdd={this.handleAdd} />
-                <TodoList list={this.state.list}
+                <TodoList 
+                    list={this.state.list}
+                    handleMarkAsDone={this.handleMarkAsDone}
+                    handleMarkAsPeding={this.handleMarkAsPeding}
                     handleRemove={this.handleRemove} />
             </div>
         );
