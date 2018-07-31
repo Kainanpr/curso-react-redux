@@ -22,6 +22,7 @@ export default class Todo extends React.Component {
         this.handleMarkAsPeding = this.handleMarkAsPeding.bind(this);
         this.handleMarkAsDone = this.handleMarkAsDone.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.handleClear = this.handleClear.bind(this);
     }
 
     /* Metodo é chamado apenas uma vez após a renderização do componente */
@@ -69,6 +70,10 @@ export default class Todo extends React.Component {
             .then(resp => this.refresh(this.state.description));
     }
 
+    handleClear() {
+        this.refresh();
+    }
+
     render() {
         return (
             <div>
@@ -77,7 +82,8 @@ export default class Todo extends React.Component {
                     description={this.state.description}
                     handleChange={this.handleChange}
                     handleAdd={this.handleAdd} 
-                    handleSearch={this.handleSearch} />
+                    handleSearch={this.handleSearch} 
+                    handleClear={this.handleClear} />
                 <TodoList 
                     list={this.state.list}
                     handleMarkAsDone={this.handleMarkAsDone}
