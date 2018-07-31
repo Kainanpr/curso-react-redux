@@ -18,7 +18,7 @@ export default class Grid extends React.Component {
     }
     
     render() {
-        const gridClasses = this.toCssClasses(this.props.cols || 12);
+        const gridClasses = this.toCssClasses(this.props.cols);
 
         return (
             <div className={gridClasses}>
@@ -27,3 +27,7 @@ export default class Grid extends React.Component {
         );
     }
 }
+
+Grid.defaultProps = {
+    cols: '12'
+};
