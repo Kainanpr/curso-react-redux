@@ -1,6 +1,7 @@
 import React from 'react';
 import Grid from '../template/Grid';
 import IconButton from '../template/IconButton';
+import './TodoForm.css';
 
 export default class TodoForm extends React.Component {
     render() {
@@ -19,6 +20,8 @@ export default class TodoForm extends React.Component {
                         onClick={this.props.handleAdd}/>
                     <IconButton style="info" icon="search" 
                         onClick={this.props.handleSearch}/>
+                    <IconButton style="default" icon="close" 
+                        onClick={this.props.handleClear}/>
                 </Grid>
             </div>
         );
