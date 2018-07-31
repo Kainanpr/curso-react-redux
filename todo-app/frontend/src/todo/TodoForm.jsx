@@ -17,6 +17,8 @@ export default class TodoForm extends React.Component {
                 <Grid cols="12 3 2">
                     <IconButton style="primary" icon="plus" 
                         onClick={this.props.handleAdd}/>
+                    <IconButton style="info" icon="search" 
+                        onClick={this.props.handleSearch}/>
                 </Grid>
             </div>
         );
