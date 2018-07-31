@@ -9,7 +9,9 @@ export default class TodoForm extends React.Component {
 
                 <Grid cols="12 9 10">
                     <input id="description" className="form-control"
-                        placeholder="Adicione uma tarefa" />
+                        placeholder="Adicione uma tarefa" 
+                        onChange={this.props.handleChange}
+                        value={this.props.description} />
                 </Grid>
 
                 <Grid cols="12 3 2">
