@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Field extends Component {
 
@@ -23,4 +24,4 @@ class Field extends Component {
     }
 }
 
-export default Field
+export default Field;
