@@ -4,6 +4,9 @@ import IconButton from '../template/IconButton';
 import './TodoForm.css';
 
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { changeDescription } from './todoActions';
 
 class TodoForm extends React.Component {
     constructor(props) {
@@ -28,7 +31,7 @@ class TodoForm extends React.Component {
                 <Grid cols="12 9 10">
                     <input id="description" className="form-control"
                         placeholder="Adicione uma tarefa" 
-                        onChange={this.props.handleChange}
+                        onChange={this.props.changeDescription}
                         onKeyUp={this.keyHandler}
                         value={this.props.description} />
                 </Grid>
@@ -52,4 +55,8 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(TodoForm);
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({ changeDescription }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoForm);
