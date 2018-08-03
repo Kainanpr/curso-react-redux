@@ -25,10 +25,11 @@ export default class Todo extends React.Component {
         this.handleClear = this.handleClear.bind(this);
     }
 
-    /* Metodo é chamado apenas uma vez após a renderização do componente */
+    /* Metodo é chamado apenas uma vez após a renderização do componente 
     componentDidMount() {
         this.refresh();
-    }
+    } 
+    */
 
     refresh(description = '') {
         const search = description ? `&description__regex=/${description}/` : '';

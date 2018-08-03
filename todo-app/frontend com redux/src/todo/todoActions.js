@@ -17,3 +17,11 @@ export const search = () => {
         payload: request
     }
 }
+
+export const add = (descri) => {
+    const request = axios.post(URL, { description: descri });
+    return {
+        type: 'TODO_ADDED',
+        payload: request
+    }
+}
