@@ -15,7 +15,7 @@ class TodoForm extends React.Component {
         this.keyHandler = this.keyHandler.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.search();
     }
 

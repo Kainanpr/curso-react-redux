@@ -1,3 +1,5 @@
+/* DADOS ESTATICOS PARA TESTE
+
 const INITIAL_STATE = {
     description: 'Ler livro',
     list: [{
@@ -13,6 +15,13 @@ const INITIAL_STATE = {
         description: 'Consulta médica na terça depois do almoço',
         done: false
     }]
+};
+
+*/
+
+const INITIAL_STATE = {
+    description: '',
+    list: []
 };
 
 export default (state = INITIAL_STATE, action) => {
