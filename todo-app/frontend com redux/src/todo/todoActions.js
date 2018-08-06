@@ -23,7 +23,7 @@ export const add = (descri) => {
      * (Nesse caso vc esta retornando um metodo que tem como parametro um dispatch)*/
     return function(dispatch) {
         axios.post(URL, { description: descri })
-            .then(resp => dispatch({ type: 'TODO_ADDED', payload: resp.data })) //Metodo da promisse
+            .then(resp => dispatch(clear())) //Metodo da promisse
             .then(resp => dispatch(search()))
     }
 }
@@ -47,4 +47,8 @@ export const remove = (todo) => {
         axios.delete(URL + "/" + todo._id)
             .then(resp => dispatch(search()))
     }
+}
+
+export const clear = () => {
+    return { type: 'TODO_CLEAR' }
 }
