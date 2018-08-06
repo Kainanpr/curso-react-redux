@@ -9,6 +9,7 @@ import promise from 'redux-promise';
 /* Serve para dentro um de action creator retornar um array com varias actions */
 import multi from 'redux-multi';
 
+/* thunk não retorna mais uma action e sim um metodo, esse metodo recebe o dispatch */
 import thunk from 'redux-thunk';
 
 import App from './main/App';

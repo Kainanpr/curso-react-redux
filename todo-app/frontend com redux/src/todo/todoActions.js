@@ -19,9 +19,25 @@ export const search = () => {
 }
 
 export const add = (descri) => {
+    /*Dispatch dispara a sua actions para todos os reducers 
+     * (Nesse caso vc esta retornando um metodo que tem como parametro um dispatch)*/
     return function(dispatch) {
         axios.post(URL, { description: descri })
             .then(resp => dispatch({ type: 'TODO_ADDED', payload: resp.data })) //Metodo da promisse
             .then(resp => dispatch(search()))
+    }
+}
+
+export const markAsDone = (todo) => {
+    return dispatch => {
+        axios.put(URL + "/" + todo._id, { ...todo, done: true })
+        .then(resp => dispatch(search()))
+    }
+}
+
+export const markAsPending = (todo) => {
+    return dispatch => {
+        axios.put(URL + "/" + todo._id, { ...todo, done: false })
+        .then(resp => dispatch(search()))
     }
 }

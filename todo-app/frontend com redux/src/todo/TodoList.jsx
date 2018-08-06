@@ -3,6 +3,8 @@ import IconButton from '../template/IconButton';
 import './TodoList.css';
 
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { markAsDone, markAsPending } from './todoActions';
 
 class TodoList extends React.Component {
 
@@ -14,9 +16,9 @@ class TodoList extends React.Component {
                 <td className={todo.done ? 'markedAsDone' : ''}>{todo.description}</td>
                 <td>
                     <IconButton style="success" icon="check" hide={todo.done} 
-                        onClick={() => this.props.handleMarkAsDone(todo)} />
+                        onClick={() => this.props.markAsDone(todo)} />
                     <IconButton style="warning" icon="undo" hide={!todo.done}
-                        onClick={() => this.props.handleMarkAsPeding(todo)} />
+                        onClick={() => this.props.markAsPending(todo)} />
                     <IconButton style="danger" icon="trash-o" hide={!todo.done}
                         onClick={() => this.props.handleRemove(todo)}
                     />
@@ -52,4 +54,7 @@ const mapStateToProps = (state) => (
     }
 );
 
-export default connect(mapStateToProps)(TodoList);
+const mapDispatchToProps = (dispatch) => 
+    bindActionCreators({ markAsDone, markAsPending }, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
