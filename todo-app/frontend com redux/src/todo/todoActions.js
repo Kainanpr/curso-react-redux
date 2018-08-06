@@ -26,7 +26,6 @@ export const add = (descri) => {
     return function(dispatch) {
         axios.post(URL, { description: descri })
             .then(resp => dispatch(clear())) //Metodo da promisse
-            .then(resp => dispatch(search()))
     }
 }
 
