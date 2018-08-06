@@ -22,7 +22,7 @@ class TodoForm extends React.Component {
     keyHandler(e) {
         //const { add, search, description } = this.props OBS=>Opcional
         if(e.key === 'Enter' ) {
-            e.shiftKey ? this.props.search : this.props.add(this.props.description)
+            e.shiftKey ? this.props.search() : this.props.add(this.props.description)
         }
         else if (e.key === 'Escape') {
             this.props.clear();
@@ -45,7 +45,7 @@ class TodoForm extends React.Component {
                     <IconButton style="primary" icon="plus" 
                         onClick={() => this.props.add(this.props.description)}/>
                     <IconButton style="info" icon="search" 
-                        onClick={() => this.props.search()}/>
+                        onClick={this.props.search}/>
                     <IconButton style="default" icon="close" 
                         onClick={this.props.clear}/>
                 </Grid>
